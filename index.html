@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Angel Urdaneta — Software Developer</title>
+<title>Angel Urdaneta — Full-Stack Developer</title>
 
-<link rel="icon" href="https://img.icons8.com/fluency/48/source-code.png" type="image/x-icon">
+<link rel="icon" href="https://img.icons8.com/fluency/48/code-fork.png" type="image/x-icon">
 
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@300;400;500;600&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
 <style>
@@ -14,12 +14,12 @@
 :root {
   --orange: #ff6a00;
   --blue: #00aaff;
-  --bg: #030812; /* Un tono más oscuro para más profundidad */
+  --bg: #040d1a;
   --card: #060f22;
   --card2: #0a1830;
-  --border: rgba(0,180,255,0.1);
-  --text: rgba(255,255,255,0.85);
-  --muted: rgba(255,255,255,0.4);
+  --border: rgba(0,180,255,0.14);
+  --text: rgba(255,255,255,0.75);
+  --muted: rgba(255,255,255,0.35);
 }
 
 html { scroll-behavior: smooth; }
@@ -29,13 +29,12 @@ body {
   background: var(--bg);
   color: var(--text);
   min-height: 100vh;
-  padding: 40px 20px;
-  line-height: 1.6;
+  padding: 20px 16px 60px;
 }
 
 /* ── WRAPPER ── */
 .wrap {
-  max-width: 800px; /* Estrechado para mejor lectura */
+  max-width: 780px; /* Reducido para evitar que el nombre se ensanche de más */
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -43,243 +42,269 @@ body {
 
 /* ── CARD BASE ── */
 .card {
-  background: linear-gradient(135deg, var(--card) 0%, var(--card2) 100%);
-  border-left: 1px solid var(--border);
-  border-right: 1px solid var(--border);
+  background: linear-gradient(135deg, var(--card) 0%, var(--card2) 50%, var(--card) 100%);
+  border: 1px solid var(--border);
   position: relative;
   overflow: hidden;
 }
-
-/* Rejilla de fondo más sutil */
 .card::before {
   content: '';
   position: absolute; inset: 0;
-  background-image: 
-    linear-gradient(rgba(0,180,255,0.02) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0,180,255,0.02) 1px, transparent 1px);
-  background-size: 30px 30px;
+  background-image:
+    linear-gradient(rgba(0,180,255,0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,180,255,0.035) 1px, transparent 1px);
+  background-size: 40px 40px;
   pointer-events: none;
 }
 
 /* corner brackets */
-.card .c { position: absolute; width: 12px; height: 12px; border-color: rgba(0,180,255,0.2); border-style: solid; z-index: 2; }
-.c.tl { top:15px; left:15px; border-width:1.5px 0 0 1.5px; }
-.c.tr { top:15px; right:15px; border-width:1.5px 1.5px 0 0; }
-.c.bl { bottom:15px; left:15px; border-width:0 0 1.5px 1.5px; }
-.c.br { bottom:15px; right:15px; border-width:0 1.5px 1.5px 0; }
+.card .c { position: absolute; width: 16px; height: 16px; border-color: rgba(0,180,255,0.35); border-style: solid; }
+.c.tl { top:12px; left:12px; border-width:2px 0 0 2px; }
+.c.tr { top:12px; right:12px; border-width:2px 2px 0 0; }
+.c.bl { bottom:12px; left:12px; border-width:0 0 2px 2px; }
+.c.br { bottom:12px; right:12px; border-width:0 2px 2px 0; }
 
 /* ── HERO SECTION ── */
 #hero {
-  border: 1px solid var(--border);
-  border-radius: 24px 24px 0 0;
-  padding: 60px 40px;
+  border-radius: 20px 20px 0 0;
+  padding: 48px 36px 40px;
   text-align: center;
+  box-shadow: 0 0 100px rgba(0,100,255,0.1);
 }
 
-.glow { position:absolute; top:-100px; left:50%; transform:translateX(-50%); width:100%; height:300px; background:radial-gradient(circle,rgba(0,130,255,0.1) 0%,transparent 70%); pointer-events:none; }
+.glow { position:absolute; top:-80px; left:50%; transform:translateX(-50%); width:600px; height:260px; background:radial-gradient(ellipse,rgba(0,130,255,0.12) 0%,transparent 70%); pointer-events:none; }
 
 .laptop-wrap {
   display: flex; justify-content: center;
-  margin-bottom: 30px;
-  animation: float 4s ease-in-out infinite alternate;
+  margin-bottom: 28px;
+  animation: float 3.5s ease-in-out infinite alternate;
 }
-@keyframes float { from{transform:translateY(0)} to{transform:translateY(-15px)} }
-.laptop-wrap svg { width: 150px; filter: drop-shadow(0 0 25px rgba(0,140,255,0.2)); }
+@keyframes float { from{transform:translateY(0)} to{transform:translateY(-10px)} }
+.laptop-wrap svg { width: 150px; filter: drop-shadow(0 12px 32px rgba(0,140,255,0.38)); }
 
-.greeting { font-size:10px; letter-spacing:5px; text-transform:uppercase; color:var(--muted); margin-bottom:12px; }
+.greeting { font-size:11px; letter-spacing:4px; text-transform:uppercase; color:var(--muted); margin-bottom:10px; }
 
 .hero-name {
   font-family: 'Syne', sans-serif;
-  font-size: clamp(36px, 8vw, 68px);
+  font-size: clamp(38px, 8.5vw, 68px); /* Ajustado para que no se vea tan ancho */
   font-weight: 800;
   letter-spacing: -2px;
-  line-height: 0.9;
-  margin-bottom: 12px;
+  line-height: 1;
+  margin-bottom: 6px;
 }
 .hero-name .w { color: #fff; }
-.hero-name .o { color: var(--orange); text-shadow: 0 0 30px rgba(255,106,0,0.2); }
+.hero-name .o { color: var(--orange); }
+
+.hero-sub { font-size:13px; letter-spacing:2.5px; color:var(--muted); margin-bottom:18px; text-transform:uppercase; }
 
 .badge {
-  display: inline-flex; align-items: center; gap: 12px;
-  background: rgba(255,106,0,0.05);
-  border: 1px solid rgba(255,106,0,0.2);
-  border-radius: 100px; padding: 6px 20px; margin-bottom: 20px;
+  display: inline-flex; align-items: center; gap: 10px;
+  background: rgba(255,106,0,0.09);
+  border: 1px solid rgba(255,106,0,0.32);
+  border-radius: 8px; padding: 8px 24px; margin-bottom: 14px;
 }
-.badge span { color: var(--orange); font-family:'Syne',sans-serif; font-weight:700; font-size:14px; letter-spacing:1px; }
+.badge span { color: var(--orange); font-family:'Syne',sans-serif; font-weight:700; font-size:15px; letter-spacing:1px; }
+.badge .bar { color:rgba(255,106,0,0.4); font-size:18px; }
 
-.spec { font-size:13px; color:var(--muted); letter-spacing:0.5px; }
-.spec .dot { color:var(--orange); margin:0 6px; }
+.spec { font-size:13px; color:var(--muted); letter-spacing:1px; margin-bottom:32px; }
+.spec .dot { color:var(--orange); margin:0 8px; }
 
-/* ── SECCIONES COMUNES ── */
-.sec-div { height: 1px; background: var(--border); border:none; }
-
-#about, #contacts, #stack, #stats {
-  padding: 40px;
-  border-left: 1px solid var(--border);
-  border-right: 1px solid var(--border);
+/* ── DIVIDER ── */
+.sec-div {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(0,180,255,0.2), transparent);
+  margin: 0;
 }
 
+/* ── ABOUT ── */
+#about { padding: 36px 36px; }
 .sec-title {
   font-family: 'Syne', sans-serif;
-  font-size: 12px; letter-spacing: 3px;
+  font-size: 13px; letter-spacing: 3px;
   text-transform: uppercase;
   color: var(--orange);
-  margin-bottom: 24px;
-  display: flex; align-items: center; gap: 15px;
+  margin-bottom: 18px;
+  display: flex; align-items: center; gap: 10px;
 }
-.sec-title::after { content:''; flex:1; height:1px; background: linear-gradient(90deg, rgba(255,106,0,0.2), transparent); }
+.sec-title::after { content:''; flex:1; height:1px; background:linear-gradient(90deg,rgba(255,106,0,0.3),transparent); }
 
 .code-block {
-  background: rgba(0,0,0,0.2);
-  border: 1px solid rgba(255,255,255,0.05);
-  border-radius: 16px;
-  padding: 24px;
+  background: rgba(0,0,0,0.35);
+  border: 1px solid rgba(0,180,255,0.1);
+  border-radius: 12px;
+  padding: 22px 24px;
   font-family: 'Fira Code', monospace;
   font-size: 13px;
-  line-height: 1.8;
-  box-shadow: inset 0 0 20px rgba(0,0,0,0.2);
+  line-height: 1.9;
+  text-align: left;
+  overflow-x: auto;
 }
-
-/* ── TECH STACK ── */
-.stack-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 30px;
-}
-.cat-label {
-  font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
-  color: var(--muted); margin-bottom: 15px;
-  display: flex; align-items: center; gap: 8px;
-}
-.sk-row { display:flex; flex-wrap:wrap; gap:10px; }
-.sk {
-  display: flex; align-items: center; gap: 8px;
-  background: rgba(255,255,255,0.03);
-  border: 1px solid rgba(255,255,255,0.08);
-  border-radius: 10px; padding: 8px 14px;
-  font-size: 12px; transition: all 0.3s ease;
-}
-.sk:hover {
-  background: rgba(255,106,0,0.05);
-  border-color: var(--orange);
-  transform: translateY(-3px);
-}
-.sk svg { width:18px; height:18px; }
 
 /* ── CONTACTS ── */
-.contact-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-.ct {
-  display: flex; align-items: center; gap: 12px;
-  background: rgba(255,255,255,0.03);
-  border: 1px solid rgba(255,255,255,0.05);
-  border-radius: 12px; padding: 12px;
-  text-decoration: none; color: var(--text);
-  font-size: 13px; transition: 0.3s;
+#contacts { padding: 28px 36px 32px; }
+.contact-row {
+  display: flex; flex-wrap: wrap;
+  justify-content: center; gap: 10px;
 }
-.ct:hover { background: rgba(0,170,255,0.05); border-color: var(--blue); }
+.ct {
+  display: flex; align-items: center; gap: 8px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 8px; padding: 9px 16px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  font-size: 13px; color: var(--text);
+}
+.ct:hover { border-color:rgba(0,180,255,0.45); background:rgba(0,180,255,0.07); transform:translateY(-2px); }
+
+/* ── TECH STACK ── */
+#stack { padding: 28px 36px 36px; }
+.stack-cat { margin-bottom: 24px; }
+.cat-label {
+  font-size: 11px; letter-spacing: 2.5px; text-transform: uppercase;
+  color: var(--muted); margin-bottom: 12px;
+  display: flex; align-items: center; gap: 8px;
+}
+.cat-label span { color: var(--orange); font-size: 14px; }
+.cat-label::after { content:''; flex:1; height:1px; background:rgba(255,255,255,0.07); }
+
+.sk-row { display:flex; flex-wrap:wrap; gap:8px; }
+.sk {
+  display: flex; align-items: center; gap: 7px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 8px; padding: 7px 13px;
+  font-size: 12px; color: var(--text);
+  transition: all 0.2s ease;
+  cursor: default;
+}
+.sk:hover {
+  transform: translateY(-3px);
+  border-color: rgba(255,106,0,0.4);
+  box-shadow: 0 6px 20px rgba(255,106,0,0.15);
+}
+.sk svg { width:18px; height:18px; flex-shrink:0; }
+
+/* ── STATS ── */
+#stats { padding: 28px 36px 36px; }
+.stats-grid { display:flex; flex-wrap:wrap; gap:12px; justify-content:center; }
+.stat-card {
+  flex: 1 1 150px;
+  background: rgba(0,0,0,0.25);
+  border: 1px solid rgba(0,180,255,0.1);
+  border-radius: 12px;
+  padding: 20px 18px;
+  text-align: center;
+}
+.stat-num {
+  font-family: 'Syne', sans-serif;
+  font-size: 32px; font-weight: 800;
+  color: var(--orange); line-height: 1;
+  margin-bottom: 4px;
+}
+.stat-label { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); }
 
 /* ── FOOTER ── */
 #footer {
-  border: 1px solid var(--border);
-  border-radius: 0 0 24px 24px;
-  padding: 40px;
+  border-radius: 0 0 20px 20px;
+  padding: 28px 36px;
   text-align: center;
 }
 
-@media(max-width:650px){
-  .contact-row { grid-template-columns: 1fr; }
-  .hero-name { font-size: 45px; }
-  #hero, #about, #stack, #stats { padding: 30px 20px; }
+.sparkle { position:absolute; color:rgba(0,180,255,0.35); font-size:16px; animation:twinkle 2.2s ease-in-out infinite alternate; pointer-events:none; }
+@keyframes twinkle { from{opacity:.15;transform:scale(.8) rotate(0deg)} to{opacity:.9;transform:scale(1.2) rotate(22deg)} }
+
+@media(max-width:600px){
+  .hero-name { font-size: 42px; }
 }
 </style>
 </head>
 <body>
 
 <div class="wrap">
+
   <section class="card" id="hero">
     <div class="glow"></div>
     <div class="c tl"></div><div class="c tr"></div>
     <div class="c bl"></div><div class="c br"></div>
-    
+    <div class="sparkle" style="bottom:26px;right:26px;">✦</div>
+    <div class="sparkle" style="top:50px;left:24px;font-size:10px;">✦</div>
+
     <div class="laptop-wrap">
       <svg viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg">
         <rect x="20" y="155" width="260" height="18" rx="5" fill="#1a2a4a" stroke="#2a4a7a"/>
         <rect x="35" y="18" width="230" height="142" rx="9" fill="#0d1e38" stroke="#1e3a6a"/>
         <rect x="43" y="27" width="214" height="124" rx="5" fill="#020810"/>
-        <rect x="58" y="42" width="75" height="5" rx="2" fill="#ff6a00"/>
-        <rect x="58" y="54" width="115" height="4" rx="2" fill="#00aaff"/>
-        <circle cx="218" cy="84" r="15" fill="rgba(0,140,255,0.1)" stroke="rgba(0,180,255,0.3)"/>
+        <rect x="58" y="42" width="75" height="5" rx="2" fill="#ff6a00" opacity="0.8"/>
+        <rect x="58" y="54" width="115" height="4" rx="2" fill="#00aaff" opacity="0.6"/>
+        <circle cx="218" cy="84" r="20" fill="rgba(0,140,255,0.08)" stroke="rgba(0,180,255,0.25)"/>
       </svg>
     </div>
 
-    <p class="greeting">Disponibilidad Inmediata</p>
-    <h1 class="hero-name"><span class="w">ANGEL</span><br><span class="o">URDANETA</span></h1>
-    
+    <p class="greeting">Desarrollador de Software | Full-Stack</p>
+    <h1 class="hero-name"><span class="w">ANGEL </span><span class="o">URDANETA</span></h1>
+    <p class="hero-sub">Colombia 🇨🇴</p>
+
     <div class="badge">
-      <span>Software Developer | Full-Stack</span>
+      <span class="bar">|</span>
+      <span>AI Architect & Logic Backend</span>
+      <span class="bar">|</span>
     </div>
-    <p class="spec">AI Architecture <span class="dot">•</span> Backend Systems <span class="dot">•</span> Automation</p>
+    <p class="spec">Automation <span class="dot">•</span> Database Infrastructure <span class="dot">•</span> Scalable Systems</p>
   </section>
 
-  <hr class="sec-div">
-
-  <section class="card" id="about">
-    <p class="sec-title">✨ Perfil</p>
-    <div class="code-block">
-      <span style="color:#ff6a00">class</span> <span style="color:#61dafb">Developer</span> {<br>
-      &nbsp;&nbsp;constructor() {<br>
-      &nbsp;&nbsp;&nbsp;&nbsp;this.name = <span style="color:#4ade80">"Angel Urdaneta"</span>;<br>
-      &nbsp;&nbsp;&nbsp;&nbsp;this.stack = [<span style="color:#4ade80">"Full-Stack"</span>, <span style="color:#4ade80">"AI"</span>];<br>
-      &nbsp;&nbsp;&nbsp;&nbsp;this.motto = <span style="color:#4ade80">"Clean Code, Real Solutions"</span>;<br>
-      &nbsp;&nbsp;}<br>
-      }
-    </div>
-  </section>
-
-  <hr class="sec-div">
+  <div class="sec-div"></div>
 
   <section class="card" id="stack">
-    <p class="sec-title">🖥️ Tecnologías</p>
-    <div class="stack-grid">
-      <div class="stack-cat">
-        <p class="cat-label">Frontend</p>
-        <div class="sk-row">
-          <div class="sk">React</div>
-          <div class="sk">TypeScript</div>
-          <div class="sk">Next.js</div>
+    <p class="sec-title">🖥️ Tech Stack</p>
+    
+    <div class="stack-cat">
+      <p class="cat-label"><span>⚙️</span> Backend & Logic</p>
+      <div class="sk-row">
+        <div class="sk">
+          <svg viewBox="0 0 24 24" fill="#00ADD8"><path d="M1.81 10.25l.89 4.31c.14.71.74 1.22 1.45 1.22h15.7c.71 0 1.31-.51 1.45-1.22l.89-4.31c.14-.71-.35-1.42-1.07-1.42H2.88c-.72 0-1.21.71-1.07 1.42zM12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/></svg>
+          Go (Golang)
+        </div>
+        <div class="sk">
+          <svg viewBox="0 0 32 32"><path d="M16 3L4 10v12l12 7 12-7V10z" fill="#3c873a"/></svg>
+          Node.js
+        </div>
+        <div class="sk">
+          <svg viewBox="0 0 32 32"><path d="M15.9 2C10.2 2 10.6 4.5 10.6 4.5V7h5.5v1H7.2S4 7.7 4 13.5s3.7 5.6 3.7 5.6H9v-2.7s-.1-3.7 3.6-3.7h6.2s3.5.1 3.5-3.4V5.1S22.8 2 15.9 2z" fill="#366a96"/></svg>
+          Python
+        </div>
+        <div class="sk">
+          <svg viewBox="0 0 32 32"><path d="M28 8.5l-12-7-12 7v15l12 7 12-7z" fill="#239120"/></svg>
+          C#
         </div>
       </div>
-      <div class="stack-cat">
-        <p class="cat-label">Backend</p>
-        <div class="sk-row">
-          <div class="sk">Node.js</div>
-          <div class="sk">Python</div>
-          <div class="sk">
-            <svg viewBox="0 0 24 24" fill="#00ADD8"><path d="M1.81 10.25l.89 4.31c.14.71.74 1.22 1.45 1.22h15.7c.71 0 1.31-.51 1.45-1.22l.89-4.31c.14-.71-.35-1.42-1.07-1.42H2.88c-.72 0-1.21.71-1.07 1.42zM12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/></svg>
-            Go (Golang)
-          </div>
-          <div class="sk">C#</div>
-        </div>
+    </div>
+
+    <div class="stack-cat">
+      <p class="cat-label"><span>🤖</span> AI & Automation</p>
+      <div class="sk-row">
+        <div class="sk">n8n</div>
+        <div class="sk">OpenAI API</div>
+        <div class="sk">Docker</div>
       </div>
     </div>
   </section>
 
-  <hr class="sec-div">
+  <div class="sec-div"></div>
 
   <section class="card" id="contacts">
-    <p class="sec-title">🌐 Conectemos</p>
+    <p class="sec-title">🌐 Contacts</p>
     <div class="contact-row">
       <a class="ct" href="https://github.com/xUr4Sx" target="_blank">GitHub</a>
-      <a class="ct" href="https://linkedin.com/in/angel-urdaneta-686a552a7/" target="_blank">LinkedIn</a>
       <a class="ct" href="mailto:urdanetaangel886@gmail.com">Email</a>
       <a class="ct" href="https://wa.me/573013679860">WhatsApp</a>
     </div>
   </section>
 
   <footer class="card" id="footer">
-    <p style="font-size: 12px; color: var(--muted)">© 2026 Angel Urdaneta — Colombia 🇨🇴</p>
+    <p style="font-size:12px; opacity:0.5">Angel Urdaneta © 2026 — Colombia</p>
   </footer>
-</div>
 
+</div>
 </body>
 </html>
